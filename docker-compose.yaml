@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+    testing-env-file:
+        image: testing-env-file
+        container_name: testing-env-file
+        env_file: .env
+        ports: 
+            - 88:88
+        environment:
+            - NAME=${NAME}
+            - GITHUB=${GITHUB}
+            - LINKEDIN=${LINKEDIN}
+            - YOUTUBE=${YOUTUBE}
+            - INSTAGRAM=${INSTAGRAM}
+        build: 
+            context: .
+            dockerfile: Dockerfile
