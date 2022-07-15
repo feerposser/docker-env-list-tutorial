@@ -1,12 +1,19 @@
-# Docker compose .env file with flask
-Simple tutorial for how to use environment variables with Docker and Flask.
+<div align="center">
+
+# Docker .env file tutorial
+
+Simple tutorial for how to use environment variables with Docker. 
+
+<small>For this example we are going to use Python Flask, but you can use it with any other language and framework that you want to.</small>
+ 
+</div>
+
 ## Why using .env files with Docker?
-When we are developing an open source application that will run in some production environment, problably it will use some key or auth method for some service.
+When we are developing an open source application that will run in some production environment (many times also in dev environment), problably it will use some key or auth method for some service.
 
+The source code it will be exposed on our repo, and if we don't use different keys in dev environment and production environment, the security will be compromisse.
 
-The open source code it will be exposed on our repo, and if we don't use different keys on dev environment and production environment, the security will be compromisse.
-
-There is many ways to organize secret keys in production and development environments. One of then using Docker Compose is implementing an .env file and configure our docker-compose.yml for start to use the variables defined on this archieve.
+There is many ways to organize secret keys in production and development environments. One of then using Docker Compose is implementing an .env file and configure our docker-compose.yml for start to using the variables defined on this archive.
 
 ### Let's get started
 
