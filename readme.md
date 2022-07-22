@@ -9,6 +9,10 @@ Simple tutorial for how to use environment variables with Docker.
  
 </div>
 
+<br>
+<hr>
+<br>
+
 ## Why using .env files in our projects?
 When we start to learn programming, commonly the basics tutorials for web dev show us the secrets in the project just like `SECRET=mysecretpasswordforcript`. We run the project and everything is fine. And that's ok. But when we start to develop some more real world feature, this is not a good idea, mainly if the project it will be open source or be exposed for some other people inside or outside of the organization.
 
@@ -24,6 +28,10 @@ After that we can switch between an open file, where everyone can have access, a
 
 Enough talking, let's code.
 
+<br>
+<hr>
+<br>
+
 ## Let's get started
 
 What is in this tutorial:
@@ -32,6 +40,10 @@ What is in this tutorial:
 3. - [x] `Dockerfile` for building `Docker image`
 4. - [x] Run container using `Docker CLI` and loading variables with flags and .env file
 5. - [x] `docker-compose.yml` file for up the service container with environments variables
+
+<br>
+<hr>
+<br>
 
 ### 1 - creating docker image
 > This section it'll be important if you're not running on docker compose where we can build an image automatically.
@@ -127,5 +139,5 @@ to do
 <hr>
 <br>
 
-### results
+## results
 To do
