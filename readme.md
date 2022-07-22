@@ -55,11 +55,16 @@ What is in this tutorial:
     localhost:5000
 </details>
 
+<br>
+<hr>
+<br>
 
 ### 1.2 - Docker run with .env file
+Now we're talking! Let's start to using .env files for real.
+
 Loading values from archives is a very common way to deal with secrets in programming.
 
-The [.env file](https://docs.docker.com/compose/env-file/) is a default method available in `Docker Compose` to start any service with the values inside the `.env`.
+The [.env file](https://docs.docker.com/compose/env-file/) is a default method available in `Docker` `Docker Compose` to start any service with the values inside the `.env`.
 
 Is very simple to use. In the `.env` just write:<br>
 `VARIABLE_NAME=VALUE`
