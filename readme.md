@@ -38,7 +38,10 @@ What is in this tutorial:
 
 <details>
     <summary>click to view</summary>
-    tutorial for docker build . -t name
+    First things first, let's create the image that will be used to start the container. For doing that just type it the fallowing command inside the Dockerfile directory:
+
+    `docker build . -t docker-tutorial-image`
+
     docker images
 </details>
 
