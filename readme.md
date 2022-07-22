@@ -137,7 +137,29 @@ Now, if you open the `http://localhost` address:
 <br>
 
 ### 2 docker-compose.yml file
-to do
+> In this section we'll see how to use .env file in a `docker compose` project.
+
+<details>
+<summary>click do view</summary>
+
+In [Docker Compose](https://docs.docker.com/compose/) things are a little bit different and with more clean commands. In the [docker-compose.yml](./tutorial/docker-compose.yaml) file are some definitions that able us to just run the fallowing command inside the tutorial folder to get everything up and running:
+
+`docker compose up --build -d`
+
+<small>Depending on the Docker environ version that you're using maybe run with 'docker-compose' instead.</small>
+
+If you refresh the page, will se the exactly same result as before. Let's understand what just it happened.
+
+The `up` command is to set up and running the containers defined inside docker-compose file, while `--build` flag is to build the image if the image dont exists and `-d` flag is to run everything on background.
+
+In the service level indentation you'll find a `env_file` definition that uses the `.env file`. This will load the file and bring the variables to the container config. 
+
+Right bellow there is the `environment` definition. The sintax is very simple: `CONTAINER_VARIABLE=${ENV_FILE_VARIABLE}`. The values of the `.env file` variables will be stored in the container variables. Using that you can just change the `env_file` path to switch the variables values that will be loaded in the container.
+
+After testing just execute the command to stop the container:
+`docker compose down`
+
+</details>
 
 <br>
 <hr>

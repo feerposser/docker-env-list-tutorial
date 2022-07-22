@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
     testing-env-file:
-        image: testing-env-file
+        image: docker-tutorial-image
         container_name: testing-env-file
         env_file: .env
         ports: 
