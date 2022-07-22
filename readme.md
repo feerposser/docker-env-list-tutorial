@@ -81,7 +81,7 @@ What is in this tutorial:
 ![image](./assets/img/1.png)
 </div>
 
-<p></p>
+<p>As you can see, the API run inside the container returns a list with varibles, where the 'NAME' variable have the value set in the -e flag. If you type more -e flags fallowed by VAR-NAME=VALUE, it will be showed in browser. <small>But just GITHUB, INSTAGRAM, LINKEDIN, NAME and YOUTUBE will appear because of the app.py script behaviour. You can change it as you want.</small></p>
 </details>
 
 <br>
@@ -91,12 +91,18 @@ What is in this tutorial:
 ### 1.2 - Docker run with .env file
 Now we're talking! Let's start to using .env files for real.
 
+In this section we will do the same as the last one, but this time with a `.env` instead of -e flag.
+
+<details>
+<summary>click to view</summary>
 Loading values from archives is a very common way to deal with secrets in programming.
 
 The [.env file](https://docs.docker.com/compose/env-file/) is a default method available in `Docker` `Docker Compose` to start any service with the values inside the `.env`.
 
 Is very simple to use. In the `.env` just write:<br>
 `VARIABLE_NAME=VALUE`
+
+</details>
 
 ### 2 Flask app running
 to do
