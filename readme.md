@@ -37,14 +37,17 @@ What is in this tutorial:
 > This section it'll be important if you're not running on docker compose where we can build an image automatically.
 
 <details>
-    <summary>click to view</summary>
+<summary>click to view</summary>
 
 <p>First things first, let's create the image that will be used to start the container. For doing that just type it the fallowing command inside the Dockerfile directory:</p>
 
 `docker build . -t docker-tutorial-image`
-    <p></p>
 
-    docker images
+<p>This will build an image based on Dockerfile with tag 'docker-tutorial-image' or whatever other name you want to.</p>
+
+<p>You can check this out just typing the command bellow for list all available image:</p>
+
+`docker images`
 </details>
 
 <br>
@@ -55,9 +58,30 @@ What is in this tutorial:
 > This section is for creating a simple container loading environment variables in the container run with flags.
 
 <details>
-    <summary>click to view</summary>
-    docker run image --name container-name -e var=value -p 80:5000
-    localhost:5000
+<summary>click to view</summary>
+<p>To start the container by using the image created in the last section, just type the fallowing command:</p>
+
+`docker run -p 80:5000 --name testing -e NAME=myname -d docker-tutorial-image`
+
+<p>The command above connect the 80 host port to the 5000 container port. The --name flag set a name to the container, wich you can check by typing the command:</p>
+
+`docker ps`
+
+<p>and checking the name column. The -e flag is who insert the variables in the container. The -e is falowed by this sintax:</p>
+
+`VARIABLE=VALUE`
+
+<p>The -d flag runs the container in background. Last but not least, the tag image used in the build section.</p>
+<p>Now, we can open the browser and check the results by fallowing the URL:</p>
+
+`http://localhost`.
+
+<div align="center">
+
+![image](./assets/img/1.png)
+</div>
+
+<p></p>
 </details>
 
 <br>
