@@ -30,10 +30,34 @@ What is in this tutorial:
 1. - [x] `.env` file with environment variables
 2. - [x] Hello world `Flask` app running showing some secrets loaded by `.env` file
 3. - [x] `Dockerfile` for building `Docker image`
-4. - [x] `docker-compose.yml` file for up the container
+4. - [x] Run container using `Docker CLI` and loading variables with flags and .env file
+5. - [x] `docker-compose.yml` file for up the service container with environments variables
 
-### 1 .env file
-Loading values from archives is a very common way to deal with secrets in programming. 
+### 1 - creating docker image
+> This section it'll be important if you're not running on docker compose where we can build an image automatically.
+
+<details>
+    <summary>click to view</summary>
+    tutorial for docker build . -t name
+    docker images
+</details>
+
+<br>
+<hr>
+<br>
+
+### 1.1 - Docker run env with flags
+> This section is for creating a simple container loading environment variables in the container run with flags.
+
+<details>
+    <summary>click to view</summary>
+    docker run image --name container-name -e var=value -p 80:5000
+    localhost:5000
+</details>
+
+
+### 1.2 - Docker run with .env file
+Loading values from archives is a very common way to deal with secrets in programming.
 
 The [.env file](https://docs.docker.com/compose/env-file/) is a default method available in `Docker Compose` to start any service with the values inside the `.env`.
 
