@@ -6,7 +6,7 @@ services:
         container_name: testing-env-file
         env_file: .env
         ports: 
-            - 88:88
+            - 80:5000
         environment:
             - NAME=${NAME}
             - GITHUB=${GITHUB}
