@@ -112,27 +112,31 @@ The [.env file](https://docs.docker.com/compose/env-file/) is a default method a
 Is very simple to use. In the `.env` just write:<br>
 `VARIABLE_NAME=VALUE`
 
+You can see this in the [.env file](./tutorial/.env) inside the tutorial folder.
+
+Using it we can define files for being used in dev and production environment and switch between then, also managing wich one you want to expose by using [.gitignore](https://git-scm.com/docs/gitignore).
+
+To start a container with this file, just type the command bellow inside the tutorial folder:
+
+`docker run -p 80:5000 --name tutorial --env-file .env tutorial`
+
+The only news here is the `--env-file` flag, wich is used to define the file that will be used to load the enrivonment variables to the container.
+
+Now, if you open the `http://localhost` address:
+
+<div align="center">
+
+![image](./assets/img/2.png)
+
+</div>
+
 </details>
 
 <br>
 <hr>
 <br>
 
-### 2 Flask app running
-to do
-
-<br>
-<hr>
-<br>
-
-### 3 Dockerfile
-to do
-
-<br>
-<hr>
-<br>
-
-### 4 docker-compose.yml file
+### 2 docker-compose.yml file
 to do
 
 <br>
