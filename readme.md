@@ -38,9 +38,10 @@ What is in this tutorial:
 
 <details>
     <summary>click to view</summary>
-    First things first, let's create the image that will be used to start the container. For doing that just type it the fallowing command inside the Dockerfile directory:
-
+    <p>First things first, let's create the image that will be used to start the container. For doing that just type it the fallowing command inside the Dockerfile directory:</p>
+    
     `docker build . -t docker-tutorial-image`
+
 
     docker images
 </details>
