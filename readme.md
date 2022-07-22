@@ -102,14 +102,30 @@ Is very simple to use. In the `.env` just write:<br>
 
 </details>
 
+<br>
+<hr>
+<br>
+
 ### 2 Flask app running
 to do
+
+<br>
+<hr>
+<br>
 
 ### 3 Dockerfile
 to do
 
+<br>
+<hr>
+<br>
+
 ### 4 docker-compose.yml file
 to do
+
+<br>
+<hr>
+<br>
 
 ### results
 To do
