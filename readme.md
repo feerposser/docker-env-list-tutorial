@@ -89,9 +89,7 @@ What is in this tutorial:
 <br>
 
 ### 1.2 - Docker run with .env file
-Now we're talking! Let's start to using .env files for real.
-
-In this section we will do the same as the last one, but this time with a `.env` instead of -e flag.
+>Now we're talking! Let's start to using .env files for real. In this section we will do the same as the last one, but this time with a `.env` instead of -e flag.
 
 <details>
 <summary>click to view</summary>
