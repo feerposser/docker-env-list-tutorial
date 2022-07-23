@@ -172,5 +172,20 @@ After testing just execute the command to stop the container:
 <hr>
 <br>
 
-## results
-To do
+## Conclusion
+
+In this simple example we're just using a service API that returns the environment variables names and values. But I think you get the idea. The values inside `.env` file can be used for hashing, cryptography, setting configs and all kind of stuff.
+
+You also can create a folder with multiple .env files just like `.env.production`, `production.env` or any file name sintax that you like for production and development too. In this way you can handle the secrets exposure just by using .gitignore file in your repo.
+
+I hope this tutorial helps you to understand how to use environment variables with Docker or Docker Compose. Feel free to leave a comment for any error ou just asking a question. 
+
+Cheers!
+
+Bye (:
+
+Adiós!
+
+au revoir :)
+
+Tchau (:
