@@ -41,6 +41,8 @@ What is in this tutorial:
 4. - [x] Run container using `Docker CLI` and loading variables with flags and .env file
 5. - [x] `docker-compose.yml` file for up the service container with environments variables
 
+We're not going to learn Docker or Docker Compose from scratch. This tutorial assumes that you know the basics of each one of then.
+
 <br>
 <hr>
 <br>
@@ -51,7 +53,7 @@ What is in this tutorial:
 <details>
 <summary>click to view</summary>
 
-<p>First things first, let's create the image that will be used to start the container. For doing that just type it the fallowing command inside the Dockerfile directory:</p>
+<p>First things first, let's create the image that will be used to start the container. For doing that just type it the following command inside the Dockerfile directory:</p>
 
 `docker build . -t docker-tutorial-image`
 
@@ -67,11 +69,11 @@ What is in this tutorial:
 <br>
 
 ### 1.1 - Docker run env with flags
-> This section is for creating a simple container loading environment variables in the container run with flags.
+> This section is for creating a simple container that loads environment variables in the container running with flags.
 
 <details>
 <summary>click to view</summary>
-<p>To start the container by using the image created in the last section, just type the fallowing command:</p>
+<p>To start the container by using the image created in the last section, just type the following command:</p>
 
 `docker run -p 80:5000 --name testing -e NAME=myname -d docker-tutorial-image`
 
@@ -79,7 +81,7 @@ What is in this tutorial:
 
 `docker ps`
 
-<p>and checking the name column. The -e flag is who insert the variables in the container. The -e is falowed by this sintax:</p>
+<p>and checking the name column. The -e flag is who insert the variables in the container. The -e is folowed by this sintax:</p>
 
 `VARIABLE=VALUE`
 
@@ -93,7 +95,10 @@ What is in this tutorial:
 ![image](./assets/img/1.png)
 </div>
 
-<p>As you can see, the API run inside the container returns a list with varibles, where the 'NAME' variable have the value set in the -e flag. If you type more -e flags fallowed by VAR-NAME=VALUE, it will be showed in browser. <small>But just GITHUB, INSTAGRAM, LINKEDIN, NAME and YOUTUBE will appear because of the app.py script behaviour. You can change it as you want.</small></p>
+<p>As you can see, the API run inside the container returns a list with varibles, where the 'NAME' variable have the value set in the -e flag. If you type more -e flags fallowed by VAR-NAME=VALUE, it will be showed in browser.</p>
+
+<div align="center"><small>But just GITHUB, INSTAGRAM, LINKEDIN, NAME and YOUTUBE will appear because of the <a src="./tutorial/app.py">app.py</a> script behaviour. You can change it as you want.</small></div>
+
 </details>
 
 <br>
@@ -101,26 +106,26 @@ What is in this tutorial:
 <br>
 
 ### 1.2 - Docker run with .env file
->Now we're talking! Let's start to using .env files for real. In this section we will do the same as the last one, but this time with a `.env` instead of -e flag.
+>Now we're talking! Let's start to using .env files for real. In this section we will do the same as the last one, but this time with a `.env` file instead of -e flag.
 
 <details>
 <summary>click to view</summary>
 Loading values from archives is a very common way to deal with secrets in programming.
 
-The [.env file](https://docs.docker.com/compose/env-file/) is a default method available in `Docker` `Docker Compose` to start any service with the values inside the `.env`.
+The [.env file](https://docs.docker.com/compose/env-file/) is a default method available in `Docker` and `Docker Compose` to start any service with the values inside the `.env`.
 
-Is very simple to use. In the `.env` just write:<br>
+Is very simple to use. In the `.env` just write your variables with the following sintax:<br>
 `VARIABLE_NAME=VALUE`
 
-You can see this in the [.env file](./tutorial/.env) inside the tutorial folder.
+You can see this in the [.env file](./tutorial/.env) inside the tutorial folder. Sometimes, depending on the string format, the variables will use some special character(s) that can be interpreted by the shell as a comment os something. In this case you can use [simple quotes to avoid the default behaviour](https://github.com/docker/compose/issues/8607#issuecomment-938235797): `VARNAME='VALUE'`.
 
-Using it we can define files for being used in dev and production environment and switch between then, also managing wich one you want to expose by using [.gitignore](https://git-scm.com/docs/gitignore).
+In that way we can define files for being used in dev and production environment and switch between then, also managing which one you want to expose by using [.gitignore](https://git-scm.com/docs/gitignore).
 
-To start a container with this file, just type the command bellow inside the tutorial folder:
+To start a container loading the file, just type the command bellow inside the tutorial folder:
 
 `docker run -p 80:5000 --name tutorial --env-file .env tutorial`
 
-The only news here is the `--env-file` flag, wich is used to define the file that will be used to load the enrivonment variables to the container.
+The only news here is the `--env-file` flag, which is used to define the file that will be used to load the enrivonment variables to the container.
 
 Now, if you open the `http://localhost` address:
 
@@ -129,6 +134,8 @@ Now, if you open the `http://localhost` address:
 ![image](./assets/img/2.png)
 
 </div>
+
+All the variables inside .env are loaded to the container, which runs the Flask API that return then to the browser.
 
 </details>
 
@@ -142,7 +149,7 @@ Now, if you open the `http://localhost` address:
 <details>
 <summary>click do view</summary>
 
-In [Docker Compose](https://docs.docker.com/compose/) things are a little bit different and with more clean commands. In the [docker-compose.yml](./tutorial/docker-compose.yaml) file are some definitions that able us to just run the fallowing command inside the tutorial folder to get everything up and running:
+In [Docker Compose](https://docs.docker.com/compose/) things are a little bit different and with more clean commands. In the [docker-compose.yml](./tutorial/docker-compose.yaml) file there are some definitions that able us to just run the fallowing command inside the tutorial folder to get everything up and running:
 
 `docker compose up --build -d`
 
@@ -150,11 +157,11 @@ In [Docker Compose](https://docs.docker.com/compose/) things are a little bit di
 
 If you refresh the page, will se the exactly same result as before. Let's understand what just it happened.
 
-The `up` command is to set up and running the containers defined inside docker-compose file, while `--build` flag is to build the image if the image dont exists and `-d` flag is to run everything on background.
+The `up` command is to set up and run the services defined inside docker-compose file, while `--build` flag is to build the image if the image dont exists and `-d` flag is to run everything on background.
 
 In the service level indentation you'll find a `env_file` definition that uses the `.env file`. This will load the file and bring the variables to the container config. 
 
-Right bellow there is the `environment` definition. The sintax is very simple: `CONTAINER_VARIABLE=${ENV_FILE_VARIABLE}`. The values of the `.env file` variables will be stored in the container variables. Using that you can just change the `env_file` path to switch the variables values that will be loaded in the container.
+Right bellow there is the `environment` definition. The sintax is very simple: `CONTAINER_VARIABLE=${ENV_FILE_VARIABLE}`. The values of the `.env file` variables will be stored in the container variables. Using that you can just change the `env_file` path to switch between files that will be loaded in the service container.
 
 After testing just execute the command to stop the container:
 `docker compose down`
