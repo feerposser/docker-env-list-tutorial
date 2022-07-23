@@ -118,18 +118,18 @@ Loading values from archives is a very common way to deal with secrets in progra
 
 The [.env file](https://docs.docker.com/compose/env-file/) is a default method available in `Docker` and `Docker Compose` to start any service with the values inside the `.env`.
 
-Is very simple to use. In the `.env` just write your variables with the following sintax:<br>
+Is very simple to use. In the `.env` just write your variables one bellow the other with the following sintax:<br>
 `VARIABLE_NAME=VALUE`
 
-You can see this in the [.env file](./tutorial/.env) inside the tutorial folder. Sometimes, depending on the string format, the variables will use some special character(s) that can be interpreted by the shell as a comment os something. In this case you can use [simple quotes to avoid the default behaviour](https://github.com/docker/compose/issues/8607#issuecomment-938235797): `VARNAME='VALUE'`.
+You can see this in the [.env file](./tutorial/.env) inside the tutorial folder. Sometimes, depending on the string format, the variables will use some special character(s) that can be interpreted by the shell as a comment or something. In this case you can use [simple quotes to avoid the default behaviour](https://github.com/docker/compose/issues/8607#issuecomment-938235797): `VARNAME='VALUE'`.
 
 In that way we can define files for being used in dev and production environment and switch between then, also managing which one you want to expose by using [.gitignore](https://git-scm.com/docs/gitignore).
 
-To start a container loading the file, just type the command bellow inside the tutorial folder:
+To start a container loading a file, just type the command bellow inside the tutorial folder:
 
-`docker run -p 80:5000 --name tutorial --env-file .env tutorial`
+`docker run -p 80:5000 --name tutorial --env-file .env docker-tutorial-image`
 
-The only news here is the `--env-file` flag, which is used to define the file that will be used to load the enrivonment variables to the container.
+The only news here is the `--env-file` flag, which is used to define the path to the file that will be used to load the enrivonment variables to the container.
 
 Now, if you open the `http://localhost` address:
 
@@ -161,9 +161,9 @@ In [Docker Compose](https://docs.docker.com/compose/) things are a little bit di
 
 If you refresh the page, will se the exactly same result as before. Let's understand what just it happened.
 
-The `up` command is to set up and run the services defined inside docker-compose file, while `--build` flag is to build the image if the image dont exists and `-d` flag is to run everything on background.
+The `up` command is to set up and run the services defined inside docker-compose file, while `--build` flag is to build the image if the image dont exists (must be configured in the build definition inside the docker-compose.yml service level. Without it, will wont work and you'll need to build the image on your own before start thedocker compose) and `-d` flag is to run everything on background.
 
-In the service level indentation you'll find a `env_file` definition that uses the `.env file`. This will load the file and bring the variables to the container config. 
+In the service level indentation you'll find a `env_file` definition that uses the `.env` archive. This will load the file and bring the variables to the container config. 
 
 Right bellow there is the `environment` definition. The sintax is very simple: `CONTAINER_VARIABLE=${ENV_FILE_VARIABLE}`. The values of the `.env file` variables will be stored in the container variables. Using that you can just change the `env_file` path to switch between files that will be loaded in the service container.
 
