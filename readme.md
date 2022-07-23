@@ -52,14 +52,13 @@ We're not going to learn Docker or Docker Compose from scratch. This tutorial as
 
 <details>
 <summary>click to view</summary>
-
-<p>First things first, let's create the image that will be used to start the container. For doing that just type it the following command inside the Dockerfile directory:</p>
+First things first, let's create the image that will be used to start the container. For doing that just type it the following command inside the Dockerfile directory:
 
 `docker build . -t docker-tutorial-image`
 
-<p>This will build an image based on Dockerfile with tag 'docker-tutorial-image' or whatever other name you want to.</p>
+This will build an image based on Dockerfile with tag 'docker-tutorial-image' or whatever other name you want to.
 
-<p>After building, you can check this out to have sure that everything is fine just typing the command bellow for list all available image:</p>
+After building, you can check this out to have sure that everything is fine just typing the command bellow for list all available image:
 
 `docker images`
 
@@ -75,7 +74,7 @@ We're not going to learn Docker or Docker Compose from scratch. This tutorial as
 
 <details>
 <summary>click to view</summary>
-<p>To start the container by using the image created in the last section, just type the following command:</p>
+To start the container by using the image created in the last section, just type the following command:
 
 `docker run -p 80:5000 --name testing -e NAME=myname -d docker-tutorial-image`
 
@@ -100,7 +99,7 @@ Now, we can open the browser and check the results by fallowing the URL:
 ![image](./assets/img/1.png)
 </div>
 
-<p>As you can see, the API run inside the container returns a list with varibles, where the 'NAME' variable have the value set in the -e flag. If you type more -e flags fallowed by VAR-NAME=VALUE, it will be showed in browser.</p>
+As you can see, the API run inside the container returns a list with varibles, where the 'NAME' variable have the value set in the -e flag. If you type more -e flags fallowed by VAR-NAME=VALUE, it will be showed in browser.
 
 <div align="center"><small>But just GITHUB, INSTAGRAM, LINKEDIN, NAME and YOUTUBE will appear because of the <a src="./tutorial/app.py">app.py</a> script behaviour. You can change it as you want.</small></div>
 
