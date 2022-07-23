@@ -14,7 +14,7 @@ Simple tutorial for how to use environment variables with Docker.
 <br>
 
 ## Why using .env files in our projects?
-When we start to learn programming, commonly the basics tutorials for web dev show us the secrets in the project just like `SECRET=mysecretpasswordforcript`. We run the project and everything is fine. And that's ok. But when we start to develop some more real world feature, this is not a good idea, mainly if the project it will be open source or be exposed for some other people inside or outside of the organization.
+When we start to learn programming, commonly the basics tutorials for web dev show us the secrets in the project just like `SECRET=mysecretpasswordforcript` inside the main code. We run the project and everything is fine. And that's ok. But when we start to develop some more real world feature, this is not a good idea, mainly if the project it will be open source or be exposed for some other people inside or outside of the organization.
 
 Above that, when developing an open source application that will run in some production environment (many times also in dev environment), problably it will use some key or auth method for the external access.
 
@@ -35,11 +35,11 @@ Enough talking, let's code.
 ## Let's get started
 
 What is in this tutorial:
-1. - [x] `.env` file with environment variables
-2. - [x] Hello world `Flask` app running showing some secrets loaded by `.env` file
-3. - [x] `Dockerfile` for building `Docker image`
-4. - [x] Run container using `Docker CLI` and loading variables with flags and .env file
-5. - [x] `docker-compose.yml` file for up the service container with environments variables
+1. - [x] Run container using `Docker CLI` and loading variables with flags and .env file 
+2. - [x] Hello world `Flask` app running and showing some environment variables from the container 
+3. - [x] `.env` file with environment variables
+4. - [x] A `Dockerfile` for building `Docker image`
+5. - [x] A `docker-compose.yml` file for up the service container with environments variables
 
 We're not going to learn Docker or Docker Compose from scratch. This tutorial assumes that you know the basics of each one of then.
 
@@ -59,9 +59,11 @@ We're not going to learn Docker or Docker Compose from scratch. This tutorial as
 
 <p>This will build an image based on Dockerfile with tag 'docker-tutorial-image' or whatever other name you want to.</p>
 
-<p>You can check this out just typing the command bellow for list all available image:</p>
+<p>After building, you can check this out to have sure that everything is fine just typing the command bellow for list all available image:</p>
 
 `docker images`
+
+<div align="center"><small>If the build was executed if no error, you'll see your image in the list.</small></div>
 </details>
 
 <br>
@@ -77,16 +79,19 @@ We're not going to learn Docker or Docker Compose from scratch. This tutorial as
 
 `docker run -p 80:5000 --name testing -e NAME=myname -d docker-tutorial-image`
 
-<p>The command above connect the 80 host port to the 5000 container port. The --name flag set a name to the container, wich you can check by typing the command:</p>
+The command above connect the 80 host port to the 5000 container port, wich is the port running the Flask service. The --name flag set a name to the container, wich you can check by typing the command:
 
 `docker ps`
 
-<p>and checking the name column. The -e flag is who insert the variables in the container. The -e is folowed by this sintax:</p>
+and searching for name column with container called 'testing' or any name that you settled. The -e flag is who insert the variables in the container. The -e is folowed by this sintax:
 
 `VARIABLE=VALUE`
 
-<p>The -d flag runs the container in background. Last but not least, the tag image used in the build section.</p>
-<p>Now, we can open the browser and check the results by fallowing the URL:</p>
+This will create inside the container a environment variable with the name and value that you type. After start the container you can check this by going inside the container with command `docker exec -it container-name bash` and run the `set` command.
+
+The -d flag runs the container in background. Last but not least, the tag image used in the build section.
+
+Now, we can open the browser and check the results by fallowing the URL:
 
 `http://localhost`.
 
