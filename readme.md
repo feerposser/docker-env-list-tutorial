@@ -2,7 +2,9 @@
 
 # Docker Compose .env file tutorial
 
-Simple tutorial for how to use environment variables with Docker. 
+Simple tutorial for how to use environment variables with Docker.
+
+![image](./assets/img/0.png)
 
 <small>For this example we are going to use `Python Flask`, but you can use it with any other language and framework that you want to.</small>
 <small>Also, we're going to use `docker`and `docker compose`.</small>
