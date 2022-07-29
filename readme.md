@@ -1,6 +1,6 @@
 <div align="center">
 
-# Docker Compose .env file tutorial
+# Docker and docker compose .env file tutorial
 
 Simple tutorial for how to use environment variables with Docker.
 
