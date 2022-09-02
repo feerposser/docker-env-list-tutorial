@@ -2,11 +2,11 @@
 
 # Docker and docker compose .env file tutorial
 
-Simple tutorial for how to use environment variables with Docker.
+Simple tutorial on how to use environment variables with Docker.
 
 ![image](./assets/img/0.png)
 
-<small>For this example we are going to use `Python Flask`, but you can use it with any other language and framework that you want to.</small>
+<small>For this example, we are going to use `Python Flask`, but you can use it with any other language and framework that you want.</small>
 <small>Also, we're going to use `docker`and `docker compose`.</small>
  
 </div>
@@ -15,18 +15,18 @@ Simple tutorial for how to use environment variables with Docker.
 <hr>
 <br>
 
-## Why using .env files in our projects?
-When we start to learn programming, commonly the basics tutorials for web dev show us the secrets in the project just like `SECRET=mysecretpasswordforcript` inside the main code. We run the project and everything is fine. And that's ok. But when we start to develop some more real world feature, this is not a good idea, mainly if the project it will be open source or be exposed for some other people inside or outside of the organization.
+## Why use .env files in our projects?
+When we start to learn to program, commonly the basics tutorials for web dev show us the secrets in the project just like `SECRET=mysecretpasswordforcript` inside the main code. We run the project and everything is fine. And that's ok. But when we start to develop some more real-world features, this is not a good idea, mainly whether the project will be open source or be exposed to some other people inside or outside of the organization.
 
-Above that, when developing an open source application that will run in some production environment (many times also in dev environment), problably it will use some key or auth method for the external access.
+Above that, when developing an open source application that will run in some production environment (many times also in dev environment), probably it will use some key or auth method for the external access.
 
-The source code it will be exposed on our repo, and if we don't use different keys in dev environment and production environment, the security will be compromissed.
+The source code will be exposed on our repo, and if we don't use different keys in dev environment and production environment, the security will be compromised.
 
-There is many ways to organize secret keys in production and development environments. One of then using `Docker` or `Docker Compose` is implementing an `.env` file (or more than 1 file) and configure our container or `docker-compose.yml` for start to using the variables defined on this archive.
+There are many ways to organize secret keys in production and development environments. One of them using `Docker` or `Docker Compose` is implementing an `.env` file (or more than 1 file) and configuring our container or `docker-compose.yml` to start using the variables defined on this archive.
 
-The main goal doing that is take off the secrets of our hard code and putting in some another file that it will be load in the project and the secret values can be set dynamically.
+The main goal of doing that is to take off the secrets of our hard code and put them in some another file that will be loaded in the project and the secret values can be set dynamically.
 
-After that we can switch between an open file, where everyone can have access, and the real file, where just you and the authorized users can have access.
+After that, we can switch between an open file, which everyone can have access to, and the real file, which just you and the authorized users can have access to.
 
 Enough talking, let's code.
 
@@ -43,28 +43,28 @@ What is in this tutorial:
 4. - [x] A `Dockerfile` for building `Docker image`
 5. - [x] A `docker-compose.yml` file for up the service container with environments variables
 
-We're not going to learn Docker or Docker Compose from scratch. This tutorial assumes that you know the basics of each one of then.
+We're not going to learn Docker or Docker Compose from scratch. This tutorial assumes that you know the basics of each one of them.
 
 <br>
 <hr>
 <br>
 
-### 1 - creating docker image
-> This section it'll be important if you're not running on docker compose where we can build an image automatically.
+### 1 - creating a docker image
+> This section will be important if you're not running on docker compose where we can build an image automatically.
 
 <details>
 <summary>click to view</summary>
-First things first, let's create the image that will be used to start the container. For doing that just type it the following command inside the Dockerfile directory:
+First things first, let's create the image that will be used to start the container. To do that just type it the following command inside the Dockerfile directory:
 
 `docker build . -t docker-tutorial-image`
 
-This will build an image based on Dockerfile with tag 'docker-tutorial-image' or whatever other name you want to.
+This will build an image based on Dockerfile with the tag 'docker-tutorial-image' or whatever other name you want.
 
-After building, you can check this out to have sure that everything is fine just typing the command bellow for list all available image:
+After building it, you can check it out to have sure that everything is fine just typing the command below for to list all available images:
 
 `docker images`
 
-<div align="center"><small>If the build was executed if no error, you'll see your image in the list.</small></div>
+<div align="center"><small>If the build was executed with no error, you'd see its image in the list.</small></div>
 </details>
 
 <br>
