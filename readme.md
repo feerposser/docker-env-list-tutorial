@@ -80,19 +80,19 @@ To start the container by using the image created in the last section, just type
 
 `docker run -p 80:5000 --name testing -e NAME=myname -d docker-tutorial-image`
 
-The command above with `-p` flag connect the 80 host port to the 5000 container port, wich is the port running the Flask service. The `--name` flag set a name to the container, wich you can check by typing the command:
+The command above with `-p` flag connects the 80 host port to the 5000 container port, which is the port running the Flask service. The `--name` flag sets a name to the container, which you can check by typing the command:
 
 `docker ps`
 
-and searching for name column with container called 'testing' or any name that you settled. The `-e` flag is who insert the variables in the container. The -e is folowed by this sintax:
+and searching for the name column with a container called 'testing' or any name that you set. The `-e` flag is the one that inserts the variables in the container. The -e is followed by this syntax:
 
 `VARIABLE=VALUE`
 
-This will create inside the container a environment variable with the name and value that you type. After start the container you can check this by going inside the container with command `docker exec -it container-name bash` and run the `set` command.
+This will create inside the container an environment variable with the name and value that you type. After starting the container you can check it by accessing the container with command `docker exec -it container-name bash` and running the `set` command.
 
-The `-d` flag runs the container in background. Last but not least, the tag image used in the build section.
+The `-d` flag runs the container in the background, and last but not least, the tag image used in the build section.
 
-Now, we can open the browser and check the results by fallowing the URL:
+Now, we can open the browser and check the results by following the URL:
 
 `http://localhost`.
 
@@ -101,7 +101,7 @@ Now, we can open the browser and check the results by fallowing the URL:
 ![image](./assets/img/1.png)
 </div>
 
-As you can see, the API run inside the container returns a list with varibles, where the 'NAME' variable have the value set in the -e flag. If you type more -e flags fallowed by VAR-NAME=VALUE, it will be showed in browser.
+As you can see, the API run inside the container returns a list with variables, where the 'NAME' variable has the value set in the -e flag. If you type more -e flags followed by VAR-NAME=VALUE, they will be shown in the browser.
 
 <div align="center"><small>But just GITHUB, INSTAGRAM, LINKEDIN, NAME and YOUTUBE will appear because of the <a src="./tutorial/app.py">app.py</a> script behaviour. You can change it as you want.</small></div>
 
