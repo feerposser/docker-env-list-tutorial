@@ -112,7 +112,7 @@ As you can see, the API run inside the container returns a list with variables, 
 <br>
 
 ### 1.2 - Docker run with .env file
->Now we're talking! Let's start to using .env files for real. In this section we will do the same as the last one, but this time with a `.env` file instead of -e flag.
+>Now we're talking! Let's start using .env files for real. In this section we will do the same as the last one, but this time with a `.env` file instead of a -e flag.
 
 <details>
 <summary>click to view</summary>
@@ -120,18 +120,18 @@ Loading values from archives is a very common way to deal with secrets in progra
 
 The [.env file](https://docs.docker.com/compose/env-file/) is a default method available in `Docker` and `Docker Compose` to start any service with the values inside the `.env`.
 
-Is very simple to use. In the `.env` just write your variables one bellow the other with the following sintax:<br>
+It is very simple to use. In the `.env` just write your variables one below the other with the following syntax:<br>
 `VARIABLE_NAME=VALUE`
 
-You can see this in the [.env file](./tutorial/.env) inside the tutorial folder. Sometimes, depending on the string format, the variables will use some special character(s) that can be interpreted by the shell as a comment or something. In this case you can use [simple quotes to avoid the default behaviour](https://github.com/docker/compose/issues/8607#issuecomment-938235797): `VARNAME='VALUE'`.
+You can see it in the [.env file](./tutorial/.env) inside the tutorial folder. Sometimes, depending on the string format, the variables will use some special character(s) that can be interpreted by the shell as a comment or something similar. In this case, you can use [simple quotes to avoid the default behaviour](https://github.com/docker/compose/issues/8607#issuecomment-938235797): `VARNAME='VALUE'`.
 
-In that way we can define files for being used in dev and production environment and switch between then, also managing which one you want to expose by using [.gitignore](https://git-scm.com/docs/gitignore).
+In that way we can define files for being used in dev and production environment and switch between them, also managing which one you want to expose by using [.gitignore](https://git-scm.com/docs/gitignore).
 
 To start a container loading a file, just type the command bellow inside the tutorial folder:
 
 `docker run -p 80:5000 --name tutorial --env-file .env docker-tutorial-image`
 
-The only news here is the `--env-file` flag, which is used to define the path to the file that will be used to load the enrivonment variables to the container.
+The only news here is the `--env-file` flag, which is used to define the path to the file that will be used to load the environment variables to the container.
 
 Now, if you open the `http://localhost` address:
 
@@ -141,7 +141,7 @@ Now, if you open the `http://localhost` address:
 
 </div>
 
-All the variables inside .env are loaded to the container, which runs the Flask API that return then to the browser.
+All the variables inside .env are loaded to the container, which runs the Flask API that returns them to the browser.
 
 </details>
 
@@ -150,24 +150,24 @@ All the variables inside .env are loaded to the container, which runs the Flask 
 <br>
 
 ### 2 docker-compose.yml file
-> In this section we'll see how to use .env file in a `docker compose` project.
+> In this section we'll see how to use a .env file in a `docker-compose` project.
 
 <details>
 <summary>click do view</summary>
 
-In [Docker Compose](https://docs.docker.com/compose/) things are a little bit different and with more clean commands. In the [docker-compose.yml](./tutorial/docker-compose.yaml) file there are some definitions that able us to just run the fallowing command inside the tutorial folder to get everything up and running:
+In [Docker Compose](https://docs.docker.com/compose/) things are a little bit different and with more clean commands. In the [docker-compose.yml](./tutorial/docker-compose.yaml) file there are some definitions that able us to just run the following command inside the tutorial folder to get everything up and running:
 
 `docker compose up --build -d`
 
 <small>Depending on the Docker environ version that you're using maybe run with 'docker-compose' instead.</small>
 
-If you refresh the page, will se the exactly same result as before. Let's understand what just it happened.
+If you refresh the page, you will see the exact same result as before. Let's understand what just happened.
 
-The `up` command is to set up and run the services defined inside docker-compose file, while `--build` flag is to build the image if the image dont exists (must be configured in the build definition inside the docker-compose.yml service level. Without it, will wont work and you'll need to build the image on your own before start thedocker compose) and `-d` flag is to run everything on background.
+The `up` command is to set up and run the services defined inside the docker-compose file, while the `--build` flag is to build the image if the image doesn't exist (it must be configured in the build definition inside the docker-compose.yml service level. Without it, it won't work and you'll need to build the image on your own before starting the docker-compose) and `-d` flag is meant to run everything on background.
 
-In the service level indentation you'll find a `env_file` definition that uses the `.env` archive. This will load the file and bring the variables to the container config. 
+In the service level indentation, you'll find an `env_file` definition that uses the `.env` archive. It will load the file and bring the variables to the container config. 
 
-Right bellow there is the `environment` definition. The sintax is very simple: `CONTAINER_VARIABLE=${ENV_FILE_VARIABLE}`. The values of the `.env file` variables will be stored in the container variables. Using that you can just change the `env_file` path to switch between files that will be loaded in the service container.
+Right below there is the `environment` definition. The syntax is very simple: `CONTAINER_VARIABLE=${ENV_FILE_VARIABLE}`. The values of the `.env file` variables will be stored in the container variables. Using that, you can just change the `env_file` path to switch between files that will be loaded in the service container.
 
 After testing just execute the command to stop the container:
 `docker compose down`
@@ -180,18 +180,16 @@ After testing just execute the command to stop the container:
 
 ## Conclusion
 
-In this simple example we're just using a service API that returns the environment variables names and values. But I think you get the idea. The values inside `.env` file can be used for hashing, cryptography, setting configs and all kind of stuff.
+In this simple example, we're just using a service API that returns the environment names and values of the variables. But I think you get the idea. The values inside the `.env` file can be used for hashing, cryptography, setting configs and all kinds of stuff.
 
-You also can create a folder with multiple .env files just like `.env.production`, `production.env` or any file name sintax that you like for production and development too. In this way you can handle the secrets exposure just by using .gitignore file in your repo.
+You can also create a folder with multiple .env files just like `.env.production`, `production.env` or any file name syntax that you like for production and development too. In this way, you can handle the secrets exposures just by using the .gitignore file in your repo.
 
-I hope this tutorial helps you to understand how to use environment variables with Docker or Docker Compose. Feel free to leave a comment for any error ou just asking a question. 
+I hope this tutorial helps you to understand how to use environment variables with Docker or Docker Compose. Feel free to leave a comment for any errors ou just ask a question. 
 
 Cheers!
 
-Bye (:
-
 Adiós!
 
-au revoir :)
+Au revoir :)
 
 Tchau (:
